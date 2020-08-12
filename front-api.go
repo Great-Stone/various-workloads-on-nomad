@@ -1,7 +1,7 @@
 package main
 
 import (
-	"net/http"
+    "net/http"
     "github.com/labstack/echo"
     b64 "encoding/base64"
     "bytes"
@@ -17,10 +17,17 @@ func main() {
 func invokeFunc(c echo.Context) error{
     animal := c.Param("name")
     fmt.Println(animal)
+<<<<<<< HEAD
 	animal64 := b64.StdEncoding.EncodeToString([]byte(animal))
 	
 	var jsonStr = []byte(`{"Payload":"` + animal64 + `"}`)
 	url := "http://172.28.128.3:4646/v1/job/r2-parameterized-toUpper/dispatch"
+=======
+    animal64 := b64.StdEncoding.EncodeToString([]byte(animal))
+
+    var jsonStr = []byte(`{"Payload":"` + animal64 + `"}`)
+    url := "http://172.28.128.3:4646/v1/job/r2-parameterized-toUpper/dispatch"
+>>>>>>> fbef38990ceac33a81afb7500760f36b8513dc24
     req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
     req.Header.Set("Content-Type", "application/json")
 
