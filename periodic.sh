@@ -3,7 +3,5 @@ animals=("ant" "badger" "bat" "bear" "bee" "beetle" "bird" "bison" "buffalo" "bu
 num=$(echo ${#animals[@]})
 echo $num
 random_num=`awk -v min=0 -v max=${num} 'BEGIN{srand(); print int(min+rand()*(max-min+1))}'`
-
 echo $random_num
-
 curl 127.0.0.1:8888/animal/${animals[${random_num}]}

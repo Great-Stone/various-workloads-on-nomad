@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mysql -h 192.168.100.101 -u root -prooooot -D handson -e "insert into animals values ('dog')"
+mysql -h 172.28.128.4 -u root -prooooot -D handson -e "insert into animals values ('dog')"

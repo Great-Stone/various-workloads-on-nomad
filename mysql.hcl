@@ -14,6 +14,7 @@ job "r2-mysql-v5-7-28" {
 
     task "mysql-task" {
       driver = "docker"
+
       volume_mount {
         volume = "mysql-vol"
         destination = "/var/lib/mysql"
@@ -27,7 +28,7 @@ job "r2-mysql-v5-7-28" {
         }
       }
       env {
-        "MYSQL_ROOT_PASSWORD" = "rooooot"
+        MYSQL_ROOT_PASSWORD = "rooooot"
       }
       resources {
         cpu = 500
@@ -38,6 +39,17 @@ job "r2-mysql-v5-7-28" {
           port "db" {
             static = 3306
           }
+        }
+      }
+
+      service {
+        tags = ["mysql", "db"]
+
+        check {
+          type  = "tcp"
+          port  = "db"
+          interval = "10s"
+          timeout  = "2s"
         }
       }
     }
