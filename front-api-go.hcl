@@ -40,6 +40,7 @@ EOF
         }
       }
       service {
+        name = "front-go"
         tags = ["go", "api"]
 
         check {
