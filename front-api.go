@@ -20,7 +20,7 @@ func invokeFunc(c echo.Context) error{
 	animal64 := b64.StdEncoding.EncodeToString([]byte(animal))
 	
 	var jsonStr = []byte(`{"Payload":"` + animal64 + `"}`)
-    url := "http://172.28.128.3:4646/v1/job/r2-parameterized-toUpper/dispatch"
+    url := "http://172.28.128.31:4646/v1/job/r2-parameterized-toUpper/dispatch"
     req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
     req.Header.Set("Content-Type", "application/json")
     
